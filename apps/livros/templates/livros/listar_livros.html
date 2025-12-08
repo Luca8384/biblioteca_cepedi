@@ -19,7 +19,7 @@
     </div>
     <div class="card mb-3">
         <div class="card-header">
-            <h2><i class="fa fa-list"> Listagem de alunos</i></h2>
+            <h2><i class="fa fa-list"> Listagem de livros</i></h2>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -27,31 +27,35 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Nome</th>
-                            <th>Matrícula</th>
-                            <th>E-mail</th>
-                            <th>Telefone</th>
-                            <th>Data do Evento</th>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Edição</th>
+                            <th>Editora</th>
+                            <th>Data Publicação</th>
+			                <th>ISBN</th>
+                            <th>Páginas</th>
                             <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for a in alunos %}
+                    {% for l in relacao_livros %}
                         <tr>
-                            <td>{{ a.id }}</td>
-                            <td><a href="#">{{ a.nome.upper }}</a></td>
-                            <td>{{ a.matricula }}</td>
-                            <td>{{ a.email }}</td>
-                            <td>{{ a.telefone }}</td>
-                            <td>{{ a.data_evento  | date:'d/m/Y'}}</td>
+                            <td>{{ l.id }}</td>
+                            <td><a href="#">{{ l.titulo.upper }}</a></td>
+                            <td>{{ l.autor }}</td>
+                            <td>{{ l.edicao }}</td>
+                            <td>{{ l.editora }}</td>
+                            <td>{{ l.ano_publicacao  | date:'d/m/Y'}}</td>
+                            <td>{{ l.isbn }}</td>
+                            <td>{{ l.numero_paginas }}</td>
                             <td>
                                 <a href="#">
                                     <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
                                 </a>
-                                <a href="{% url 'alunos:editar_aluno' a.id %}">
+                                <a href="#">
                                     <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
                                 </a>
-                                <a href="{% url 'alunos:excluir_aluno' a.id %}">
+                                <a href="#">
                                     <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
                                 </a>
                             </td>
@@ -64,7 +68,7 @@
     </div>
     <div class="col-12 card mb-3">
         <div class="card-header">
-            <a href="{% url 'alunos:inserir_aluno' %}"><button class="btn btn-success">Cadastrar</button></a>
+            <a href="{% url 'livros:inserir_livro' %}"><button class="btn btn-success">Cadastrar</button></a>
         </div>
     </div>
 </body>

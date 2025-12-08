@@ -15,3 +15,9 @@ def inserir_livro(request):
     form = LivroForm()
     context = {'form': form}
     return render(request, template_name, context)
+
+def listar_livros(request):
+    template_name = 'livros/listar_livros.html'
+    livros = Livro.objects.all()
+    context = {'relacao_livros': livros}
+    return render(request, template_name, context)
