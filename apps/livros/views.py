@@ -43,3 +43,8 @@ def excluir_livro(request, id):
         messages.error(request, 'O livro foi excluído com sucesso.')
         return redirect('livros:listar_livros')
     return render(request, template_name, context)
+
+
+def detalhe_livro(request, id):
+    livro = get_object_or_404(Livro, id=id)
+    return render(request, 'livros/detalhe_livro.html', {'livro': livro})

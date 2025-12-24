@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% load static %}
 
 {% block conteudo %}
 <body>
@@ -17,6 +18,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>capa</th>
                             <th>Título</th>
                             <th>Autor</th>
                             <th>Edição</th>
@@ -31,7 +33,19 @@
                     {% for l in relacao_livros %}
                         <tr>
                             <td>{{ l.id }}</td>
-                            <td><a href="#">{{ l.titulo.upper }}</a></td>
+                            <td>
+                                {% if l.capa %}
+                                    <img src="{{ l.capa.url }}"
+                                         class="img-responsive"
+                                         height="30">
+                                {% else %}
+                                    <img src="{% static 'img/sem_capa.png' %}"
+                                         class="img-responsive"
+                                         height="30">
+                                {% endif %}
+                            </td>
+                            {#                            <td><img src="/media/{{ l.capa }}" class="img-responsive rounded-circle" height="30px" ></td>#}
+                            <td><a href="{% url 'livros:detalhe_livro' l.id %}">{{ l.titulo.upper }}</a></td>
                             <td>{{ l.autor }}</td>
                             <td>{{ l.edicao }}</td>
                             <td>{{ l.editora }}</td>
@@ -39,7 +53,7 @@
                             <td>{{ l.isbn }}</td>
                             <td>{{ l.numero_paginas }}</td>
                             <td>
-                                <a href="#">
+                                <a href="{% url 'livros:detalhe_livro' l.id %}">
                                     <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
                                 </a>
                                 <a href="{% url 'livros:editar_livro' l.id %}">
