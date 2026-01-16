@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from apps.alunos.models import Aluno
+from apps.autores.models import Autor
+from apps.editoras.models import Editora
 from apps.livros.models import Livro
 from apps.emprestimos.models import Emprestimo
 from django.db.models.functions import TruncMonth
@@ -8,6 +10,8 @@ from django.db.models import Count
 
 def index(request):
     total_alunos =  Aluno.objects.all().count()
+    total_editoras = Editora.objects.all().count()
+    total_autores = Autor.objects.all().count()
     total_livros = Livro.objects.all().count()
     total_emprestimos = Emprestimo.objects.filter(status='E').count()
 
@@ -33,8 +37,10 @@ def index(request):
 
     context = {
         'total_alunos': total_alunos,
+        'total_editoras': total_editoras,
         'total_livros': total_livros,
         'total_emprestimos': total_emprestimos,
+        'total_autores': total_autores,
         'meses': meses,
         'totais': totais,
 

@@ -10,7 +10,7 @@
     </div>
     <div class="card mb-3">
         <div class="card-header">
-            <h2><i class="fa fa-list"> Listagem de Empréstimos</i></h2>
+            <h2><i class="fa fa-list"> Listagem de editoras</i></h2>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -18,37 +18,25 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Aluno</th>
-                            <th>Livro</th>
-                            <th>Data Empréstimo</th>
-                            <th>Data Devolução</th>
-                            <th>Data Prevista</th>
-			                <th>Status</th>
-                            <th>Opções</th>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                    {% for e in relacao_emprestimos %}
+                    {% for e in editoras %}
                         <tr>
                             <td>{{ e.id }}</td>
-                            <td><a href="#">{{ e.aluno_id }}</a></td>
-                            <td>{{ e.livros_id }}</td>
-                            <td>{{ e.data_emprestimo | date:'d/m/y' }}</td>
-                            <td>{{ e.data_devolucao | date:'d/m/y'  }}</td>
-                            <td>{{ e.data_prevista_devolucao  | date:'d/m/Y' }}</td>
-                            {% if e.status == 'E' %}
-                                <td><span class="badge badge-danger">{{ e.get_status_display }}</span><td>
-                            {% else %}
-                                <td><span class="badge badge-success">{{ e.get_status_display }}</span><td>
-                            {% endif %}
+                            <td><a href="#">{{ e.nome.upper }}</a></td>
+                            <td>{{ e.telefone }}</td>
                             <td>
                                 <a href="#">
                                     <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
                                 </a>
-                                <a href="{% url 'emprestimos:editar_emprestimo' e.id %}">
+                                <a href="{% url 'editoras:editar_editora' e.id %}">
                                     <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
                                 </a>
-                                <a href="{% url 'emprestimos:excluir_emprestimo' e.id  %}">
+                                <a href="{% url 'editoras:excluir_editora' e.id %}">
                                     <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
                                 </a>
                             </td>
@@ -61,7 +49,7 @@
     </div>
     <div class="col-12 card mb-3">
         <div class="card-header">
-            <a href="{% url 'emprestimos:inserir_emprestimo' %}"><button class="btn btn-success">Cadastrar</button></a>
+            <a href="{% url 'editoras:inserir_editora' %}"><button class="btn btn-success">Cadastrar</button></a>
         </div>
     </div>
 </body>

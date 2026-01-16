@@ -19,7 +19,7 @@ def inserir_livro(request):
 def listar_livros(request):
     template_name = 'livros/listar_livros.html'
     livros = Livro.objects.all()
-    context = {'relacao_livros': livros}
+    context = {'livros': livros}
     return render(request, template_name, context)
 
 def editar_livro(request, id):
