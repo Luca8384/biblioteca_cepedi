@@ -1,8 +1,25 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 
 {% load widget_tweaks %}
 
 {% block conteudo %}
+=======
+{% load widget_tweaks %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Emprestimos</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
 <body>
     <div class="row">
         <div class="col-12">
@@ -10,7 +27,11 @@
     </div>
     <div class="card mb-3">
         <div class="card-header">
+<<<<<<< HEAD
             <h2><i class="fa fa-list"> Listagem de Empréstimos</i></h2>
+=======
+            <h2><i class="fa fa-list"> Listagem de Emprestimos</i></h2>
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -18,6 +39,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+<<<<<<< HEAD
                             <th>Aluno</th>
                             <th>Livro</th>
                             <th>Data Empréstimo</th>
@@ -25,12 +47,21 @@
                             <th>Data Prevista</th>
 			                <th>Status</th>
                             <th>Opções</th>
+=======
+                            <th>Aluno Id</th>
+                            <th>Livro Id</th>
+                            <th>Data do Emprestimo</th>
+                            <th>Data de Devolução</th>
+                            <th>Data Prevista de Devolução</th>
+			                <th>Status</th>
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
                         </tr>
                     </thead>
                     <tbody>
                     {% for e in relacao_emprestimos %}
                         <tr>
                             <td>{{ e.id }}</td>
+<<<<<<< HEAD
                             <td><a href="#">{{ e.aluno_id }}</a></td>
                             <td>{{ e.livros_id }}</td>
                             <td>{{ e.data_emprestimo | date:'d/m/y' }}</td>
@@ -49,6 +80,26 @@
                                     <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
                                 </a>
                                 <a href="{% url 'emprestimos:excluir_emprestimo' e.id  %}">
+=======
+                            <td><a href="#">{{ e.aluno_id}}</a></td>
+                            <td>{{ e.livro_id }}</td>
+                            <td>{{ e.data_emprestimo | date:'d/m/Y'}}</td>
+                            <td>{{ e.data_devolucao | date:'d/m/Y'}}</td>
+                            <td>{{ e.data_prevista_devolucao | date:'d/m/Y'}}</td>
+                            {% if e.status == 'E' %}
+                            <td><span class="badge badge-danger">{{ e.get_status_display }}</span><td>
+                            {% else %}
+                            <td><span class="badge badge-success">{{ e.get_status_display }}</span><td>
+                            {% endif %}
+
+                                <a href="#">
+                                    <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
+                                </a>
+                                <a href= "{% url 'emprestimos:editar_emprestimo' e.id %}">
+                                    <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
+                                </a>
+                                <a href="{% url 'emprestimos:excluir_emprestimo' e.id %}">
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
                                     <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
                                 </a>
                             </td>
@@ -65,4 +116,8 @@
         </div>
     </div>
 </body>
+<<<<<<< HEAD
 {% endblock conteudo %}
+=======
+</html>
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf

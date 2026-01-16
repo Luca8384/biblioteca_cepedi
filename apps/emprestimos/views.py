@@ -19,7 +19,10 @@ def inserir_emprestimo(request):
     context = {'form': form}
     return render(request, template_name, context)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
 def listar_emprestimos(request):
     template_name = 'emprestimos/listar_emprestimos.html'
     emprestimos = Emprestimo.objects.all()
@@ -28,7 +31,11 @@ def listar_emprestimos(request):
 
 def editar_emprestimo(request, id):
     template_name = 'emprestimos/form_emprestimo.html'
+<<<<<<< HEAD
     emprestimo = get_object_or_404(Emprestimo, pk=id)
+=======
+    emprestimo = get_object_or_404(Emprestimo, id=id)
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
     form = EmprestimoForm(request.POST or None, request.FILES or None, instance=emprestimo)
     context = {'form': form}
     if form.is_valid():
@@ -41,8 +48,16 @@ def excluir_emprestimo(request, id):
     template_name = 'emprestimos/excluir_emprestimo.html'
     emprestimo = Emprestimo.objects.get(id=id)
     context = {'emprestimo': emprestimo}
+<<<<<<< HEAD
     if request.method == 'POST':
         emprestimo.delete()
         messages.error(request, 'O Empréstimo foi excluído com sucesso')
         return redirect('emprestimos:listar_emprestimos')
     return render(request, template_name, context)
+=======
+    if request.method == "POST":
+        emprestimo.delete()
+        messages.error(request, 'O emprestimo foi excluído com sucesso.')
+        return redirect('emprestimos:listar_emprestimos')
+    return render(request, template_name, context)
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf

@@ -2,7 +2,11 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Excluir Empréstimo</title>
+=======
+    <title>Excluir Emprestimo</title>
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,6 +18,7 @@
 <body>
 <div class="card">
     <div class="card-header">
+<<<<<<< HEAD
         Tem certeza que deseja excluir os dados do Empréstimo abaixo?
     </div>
     <div class="card-body">
@@ -22,6 +27,18 @@
         <h5 class="card-title">Livro: {{ emprestimo.livro_id }}</h5>
         <h5 class="card-title">Data do Empréstimo: {{ emprestimo.data_emprestimo | date:'d/m/Y' }}</h5>
         <h5 class="card-title">Status: {{ emprestimo.get_status_display }}</h5>
+=======
+        Tem certeza que deseja remover o emprestimo abaixo?
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Emprestimo: {{emprestimo.id}}</h5>
+        <h5 class="card-title">Aluno: {{aluno.id}}</h5>
+        <h5 class="card-title">Livro: {{livro.id}}</h5>
+        <h5 class="card-title">data_emprestimo{{data_emprestimo}}</h5>
+        <h5 class="card-title">data_devolucao{{data_devolucao}}</h5>
+        <h5 class="card-title">data_prevista_devolucao{{data_prevista_devolucao}}</h5>
+        <h5 class="card-title">status{{status}}</h5>
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
 
         <form method="post">
              {% csrf_token %}
@@ -31,5 +48,9 @@
     </div>
 </div>
 </body>
+<<<<<<< HEAD
 </html>
 
+=======
+</html>
+>>>>>>> ea554921e9dabd40a9de3c45d9cb0b02b83c6faf
